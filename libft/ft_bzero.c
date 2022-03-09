@@ -6,18 +6,13 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 17:40:56 by rosantan          #+#    #+#             */
-/*   Updated: 2022/02/20 17:42:20 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/02 19:05:14 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(char *str, int n)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (i != n)
-	{
-		str[i] = '\0';
-		i++;
-	}
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, '\0', n);
 }

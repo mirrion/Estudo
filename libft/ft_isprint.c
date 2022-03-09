@@ -6,9 +6,11 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 15:30:18 by rosantan          #+#    #+#             */
-/*   Updated: 2022/02/20 15:30:24 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/09 11:24:39 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(char *str)
 {

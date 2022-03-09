@@ -6,9 +6,11 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 08:08:27 by rosantan          #+#    #+#             */
-/*   Updated: 2022/02/19 08:49:11 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/09 11:24:35 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(char *str)
 {

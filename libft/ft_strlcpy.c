@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/19 09:38:50 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/09 11:24:29 by rosantan         ###   ########.fr       */
+/*   Created: 2022/02/21 17:39:46 by rosantan          #+#    #+#             */
+/*   Updated: 2022/03/09 11:25:31 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(char *str)
+size_t	ft_strlcpy(char *str, char *src, size_t n)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	size;
 
 	i = 0;
-	while (str[i] != '\0')
+	size = 0;
+	while (src[size] != '\0')
 	{
-		if (str[i] < 0x00 || str[i] > 0x7f)
-			return (0);
-		i++;
+		size++;
 	}
-	return (1);
+	if (n)
+	{
+		while (src[i] != '\0' && i < n - 1)
+		{
+			str[i] = src[i];
+			i++;
+		}
+		str[i] = '\0';
+	}
+	return (size);
 }
+
