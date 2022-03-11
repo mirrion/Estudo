@@ -6,22 +6,15 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 09:38:50 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/09 11:24:29 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/09 19:02:46 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(char *str)
+int	ft_isascii(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] < 0x00 || str[i] > 0x7f)
-			return (0);
-		i++;
-	}
-	return (1);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

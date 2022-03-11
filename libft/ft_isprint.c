@@ -6,22 +6,15 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 15:30:18 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/09 11:24:39 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/09 19:22:03 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(char *str)
+int	ft_isprint(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] < 0x20 || str[i] > 0x7e)
-			return (0);
-		i++;
-	}
+	if (c < 0x20 || c > 0x7e)
+		return (0);
 	return (1);
 }

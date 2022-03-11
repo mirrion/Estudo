@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 06:32:44 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/09 11:24:55 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/10 09:49:17 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,10 @@
 
 int	ft_memcmp(const void *buf1, const void *buf2, size_t count)
 {
-	int	i;
-
-	i = 0;
-	while (count != 0)
+	while (count--)
 	{
-		if ((((char *)buf1)[i] == '\0') && (((char *)buf2)[i] == '\0'))
-			return (0);
-		if (((char *)buf1)[i] == '\0')
-			return (-1);
-		if (((char *)buf2)[i] == '\0')
-			return (1);
-		i++;
+		if ((char *)buf1++ != (char *)buf2++)
+			return ((char *)--buf1 - (char *)--buf2);
 	}
 	return (0);
 }

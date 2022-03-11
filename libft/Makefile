@@ -3,21 +3,19 @@ CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 OBJS	= ${SRCS:.c=.o}
 SRCS	= *.c
+RM		= rm -f
 
-.c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+${NAME}:
+			${CC} ${CFLAGS} -c *.c
+			ar rc ${NAME} *.o
+			ranlib ${NAME}
 
-$(NAME):
-	gcc -c *.c
-	ar rc $(NAME) *.o
-	ranlib $(NAME)
-
-all: $(NAME)
+all: 		${NAME}
 
 clean:
-	rm -f *.o
+			${RM} ${OBJS}
 
-fclean: clean
-	rm -f $(NAME)
+fclean: 	clean
+			${RM} ${NAME}
 
-re: fclean all
+re: 		fclean all

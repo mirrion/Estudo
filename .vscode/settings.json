@@ -9,6 +9,7 @@
 		"stdio.h": "c",
 		"bit": "cpp",
 		"libft.h": "c",
-		"stddef.h": "c"
+		"stddef.h": "c",
+		"string.h": "c"
 	}
 }
