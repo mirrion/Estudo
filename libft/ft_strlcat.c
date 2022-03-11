@@ -6,23 +6,11 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 18:55:11 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/09 19:53:52 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/11 19:26:21 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

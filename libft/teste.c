@@ -1,18 +1,34 @@
 #include "libft.h"
 
+char	*ft_substr2(char const *s, unsigned int start, size_t len)
+{
+	unsigned int	i;
+	char			*new;
+
+	if (s == NULL)
+		return (NULL);
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	new = (char *)malloc(sizeof(char) * (len + 1));
+	if (new == NULL)
+		return (NULL);
+	i = 0;
+	if (ft_strlen(s) > start)
+	{
+		while (i < len && s[start + i] != '\0')
+		{
+			new[i] = s[start + i];
+			i++;
+		}
+	}
+	new[i] = '\0';
+	return (new);
+}
+
+
 int main()
 {
-    char str1[] = "Geeks"; // Array of size 100
-    char str2[] = "Quizaaa"; // Array of size 5
-
-    puts("str1 before memmove ");
-    puts(str1);
-
-    /* Copies contents of str2 to sr1 */
-    ft_memmove(str1, str2, sizeof(str2));
-
-    puts("\nstr1 after memmove ");
-    puts(str1);
-
+    printf("%s\n", ft_substr("Robson Santana Areias", 0,9));
+    printf("%s", ft_substr2("Robson Santana Areias", 0,9));
     return 0;
 }

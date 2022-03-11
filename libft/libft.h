@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 08:36:29 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/11 08:32:15 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/11 19:22:36 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len); // *
 char	*ft_strrchr(const char *str, int ch);// *
 int		ft_tolower(int ch);
 int		ft_toupper(int ch);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 #endif
