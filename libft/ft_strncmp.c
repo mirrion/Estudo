@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 08:51:49 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/11 08:19:26 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/20 17:54:03 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 int	ft_strncmp(const char *str1, const char *str2, size_t count)
 {
-	int	i;
+	char	c1;
+	char	c2;
 
-	i = 0;
-	while (count--)
+	while (count)
 	{
-		if (((char *)str1)[i] != ((char *)str2)[i])
-			return ((((char *)str1) + i) - (((char *)str2) + i));
-		if (!(((char *)str1)[i]))
+		c1 = *str1++;
+		c2 = *str2++;
+		if (c1 != c2)
+			return ((unsigned char)c1 - (unsigned char)c2);
+		if (!c1)
 			break ;
-		i++;
+		count--;
 	}
 	return (0);
 }

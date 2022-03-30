@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 10:44:06 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/20 10:44:29 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/28 17:58:05 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	ft_putnbr_fd(int n, int fd)
 		write(fd, &str[i], 1);
 		i++;
 	}
+	free(str);
 }

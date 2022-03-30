@@ -5,7 +5,7 @@ OBJS	= ${SRCS:.c=.o}
 SRCS	= *.c
 RM		= rm -f
 
-${NAME}:
+${NAME}: ${OBJS}
 			${CC} ${CFLAGS} -c *.c
 			ar rc ${NAME} *.o
 			ranlib ${NAME}

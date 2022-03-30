@@ -11,6 +11,12 @@
 		"libft.h": "c",
 		"stddef.h": "c",
 		"string.h": "c",
-		"random": "c"
+		"random": "c",
+		"stdarg.h": "c",
+		"test": "c",
+		"deque": "c",
+		"string": "c",
+		"unordered_map": "c",
+		"vector": "c"
 	}
 }

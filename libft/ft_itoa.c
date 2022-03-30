@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 05:35:30 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/19 05:37:06 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/27 19:51:08 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	size(int n)
 	int	i;
 
 	i = 0;
+	if (n == 0)
+		return (1);
 	while (n != 0)
 	{
 		n = n / 10;
@@ -31,19 +33,22 @@ char	*ft_itoa(int n)
 	int		i;
 
 	if (n == -2147483648)
-		return (ft_strdup("-2147483648 "));
-	str = malloc(size(n) * sizeof * str);
-	if (str == NULL)
-		return (NULL);
+		return (ft_strdup("-2147483648"));
 	i = size(n);
 	if (n < 0)
-	{
 		i++;
+	str = malloc((i + 1) * sizeof * str);
+	if (str == NULL)
+		return (NULL);
+	if (n < 0)
+	{
 		str[0] = '-';
 		n *= -1;
 	}
 	str[i] = '\0';
-	while (n != 0)
+	if (n == 0)
+		str[0] = '0';
+	while (n)
 	{
 		str[--i] = (n % 10) + '0';
 		n = n / 10;

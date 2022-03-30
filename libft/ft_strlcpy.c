@@ -6,13 +6,13 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:39:46 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/09 11:25:31 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:41:32 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *str, char *src, size_t n)
+size_t	ft_strlcpy(char *str, const char *src, size_t n)
 {
 	unsigned int	i;
 	unsigned int	size;
@@ -34,4 +34,3 @@ size_t	ft_strlcpy(char *str, char *src, size_t n)
 	}
 	return (size);
 }
-

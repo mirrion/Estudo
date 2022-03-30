@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 06:39:04 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/11 08:26:31 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/23 11:46:33 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,21 @@ char	*ft_strnstr(const char	*big, const char *little, size_t len)
 
 	i = 0;
 	j = 0;
-	if (little == NULL)
+	if (ft_strlen(little) == 0)
 		return ((char *)big);
-	while (i != len)
+	while (len--)
 	{
-		while (little[j] == big[i] && little[j] != '\0')
+		if (little[j] == big[i])
 		{
 			i++;
 			j++;
 		}
 		if (little[j] == '\0')
 			return ((char *)big + i - j);
+		if (big[i] == '\0')
+			return ((char *) big);
 		j = 0;
 		i++;
 	}
-	return ('\0');
+	return (NULL);
 }

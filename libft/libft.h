@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 08:36:29 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/20 10:44:46 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/20 16:41:38 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strchr(const char *str, int ch);
 char	*ft_strdup(const char *s);// *
 size_t	ft_strlcat(char *dst, const char *src, size_t size);// *
-size_t	ft_strlcpy(char *str, char *src, size_t n);
+size_t	ft_strlcpy(char *str, const char *src, size_t n);
 size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *str1, const char *str2, size_t count);
 char	*ft_strnstr(const char	*big, const char *little, size_t len); // *

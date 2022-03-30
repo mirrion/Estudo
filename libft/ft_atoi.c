@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 19:26:26 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/09 18:46:16 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:23:55 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	ft_atoi(const char *str)
 
 	negative = 1;
 	i = 0;
-	while (ft_strchr("\t\n\v\f\r ", *str))
+	while (*str != '\0' && ft_strchr("\t\n\v\f\r ", *str) != NULL)
 		str++;
-	while (ft_strchr("+-", *str))
+	if (*str != '\0' && ft_strchr("+-", *str) != NULL)
 		if (*str++ == '-')
 			negative *= -1;
 	while (*str <= '9' && *str >= '0')
