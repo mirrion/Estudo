@@ -1,4 +1,4 @@
-NAME 	= libft.a
+NAME 	= get_next_line.a
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 OBJS	= ${SRCS:.c=.o}
