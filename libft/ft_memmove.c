@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rosantan <rosantan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 19:53:56 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/10 18:55:47 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:39:05 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	char		*tempdst;
 	const char	*tempsrc;
 
-	if (dest == 0)
+	if (dest == NULL && src == NULL)
 		return (NULL);
 	tempdst = dest;
 	tempsrc = src;

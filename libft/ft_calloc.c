@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_callloc.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rosantan <rosantan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/28 11:22:27 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/02 19:11:34 by rosantan         ###   ########.fr       */
+/*   Created: 2022/04/06 11:57:45 by rosantan          #+#    #+#             */
+/*   Updated: 2022/04/06 15:57:04 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	int	*rtn;
 
-	if (nmemb == '0' || size == '0')
-	{
-		return (NULL);
-	}
 	rtn = (int *) malloc (nmemb * size);
+	if (rtn == NULL)
+		return (NULL);
 	ft_bzero(rtn, nmemb * size);
 	return (rtn);
 }

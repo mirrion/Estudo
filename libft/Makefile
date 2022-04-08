@@ -1,14 +1,18 @@
+SRCS	= ${wildcard *.c}
 NAME 	= libft.a
+OBJS	= ${SRCS:.c=.o}
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-OBJS	= ${SRCS:.c=.o}
-SRCS	= *.c
 RM		= rm -f
+AR		= ar rc
+RN		= ranlib
+
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
-			${CC} ${CFLAGS} -c *.c
-			ar rc ${NAME} *.o
-			ranlib ${NAME}
+			${AR} ${NAME} ${OBJS}
+			${RN} ${NAME}
 
 all: 		${NAME}
 
