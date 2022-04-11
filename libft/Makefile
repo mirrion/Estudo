@@ -23,3 +23,6 @@ fclean: 	clean
 			${RM} ${NAME}
 
 re: 		fclean all
+
+so: all
+	gcc -o libft.so -shared -fPIC $(OBJS)
