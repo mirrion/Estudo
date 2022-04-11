@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 10:06:29 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/03 10:49:13 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/11 15:15:50 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,51 +20,38 @@
 
 #define BUF_SIZE 128
 
-void input (char *buf, int fd)
+char	*display(int fd)
 {
-	register int t;
+	static char		*temp;
+	char			*temp2;
+	int				i;
 
-	do
-	{
-		for (t=0 ; t< BUF_SIZE; t++) buf[t] = '\0';
-		//gets(buf);
-		if(write(fd, buf, BUF_SIZE) != BUF_SIZE)
-		{
-			printf("Erro de escrita.\n");
-		}
-	}	while (strcmp(buf, "quit"));
-}
-
-void display(char *buf, int fd)
-{
-	for(;;)
-	{
-		if(read(fd, buf, BUF_SIZE) == 0) return;
-		printf("%s\n", buf);
-	}
+	i = 0;
+	temp = malloc(sizeof * temp * (BUF_SIZE + 1));
+	temp2 = malloc(sizeof * temp * (BUF_SIZE + 1));
+	if (!temp || !temp2)
+		return (NULL);
+	read(fd, temp, BUF_SIZE);
+	while (*temp != '\n')
+		temp2[i++] = *temp++;
+	temp2[i] = '\0';
+	return (temp2);
 }
 
 
 int	main(void)
 {
 	int		fd;
-	char	buf[BUF_SIZE];
+	char	*str;
 
-	/*
-	if ((fd = open ("text.txt", O_RDONLY)) == -1)
-	{
-		printf("Nao pode abrir arquivo. \n");
-		exit(1);
-	}
-	input(buf, fd);
-	close(fd);*/
-
-	if((fd = open("program.txt", O_RDONLY)) == -1)
+	fd = open("program.txt", O_RDONLY);
+	if (fd == -1)
 	{
 		printf("O arquivo nao pode ser aberto.\n");
 		exit(1);
 	}
-	display(buf, fd);
+	str = display(fd);
+	printf("%s\n", str);
 	close(fd);
 }
 
