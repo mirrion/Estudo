@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 08:11:27 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/11 18:46:51 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/12 10:10:18 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strchr(const char *str, int ch)
 			return ((char *)str + i);
 		i++;
 	}
-	if (ch == '\0' || !ft_isascii(ch))
+	if (ch == '\0')
 		return ((char *)str + i);
 	return (NULL);
 }

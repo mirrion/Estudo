@@ -6,11 +6,31 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 14:21:28 by rosantan          #+#    #+#             */
-/*   Updated: 2022/03/27 16:00:29 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/12 10:35:23 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	str_words(char const *str, char c)
+{
+	int	i;
+	int	words;
+
+	i = 0;
+	words = 0;
+	while (str[i])
+	{
+		while (str[i] == c && str[i])
+			i++;
+		if (str[i] == '\0')
+			break ;
+		while (str[i] != c && str[i])
+			i++;
+		words++;
+	}
+	return (words);
+}
 
 int	init(char *s, char c)
 {
@@ -52,7 +72,7 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	i = 0;
-	str = malloc((ft_strlen(s) + 1) * sizeof * str);
+	str = malloc((str_words(s, c) + 1) * sizeof * str);
 	if (str == NULL)
 		return (NULL);
 	if (*s == c)
