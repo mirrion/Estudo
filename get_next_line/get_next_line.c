@@ -6,28 +6,55 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:25:32 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/11 15:25:35 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/20 07:26:34 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+char	*readfull(int fd, char *full)
 {
-	static char		*temp;
+	char	*temp;
+
+	temp = malloc(sizeof * temp * (BUFFER_SIZE + 1));
+	if (!full)
+		return (NULL);
+	if (read(fd, temp, BUFFER_SIZE) == -1)
+	{
+		free(temp);
+		return (NULL);
+	}
+	temp[ft_strlen(temp) + 1] = '\0';
+	full = ft_strjoin(full, temp);
+	free(temp);
+	return (full);
+}
+
+char	*readline(char *full)
+{
 	char			*temp2;
 	int				i;
 
-	if (fd < 0 || BUFFER_SIZE < 0)
-		return (NULL);
 	i = 0;
-	temp = malloc(sizeof * temp * (BUFFER_SIZE + 1));
-	temp2 = malloc(sizeof * temp * (BUFFER_SIZE + 1));
-	if (!temp || !temp2)
+	temp2 = malloc(sizeof * full * (BUFFER_SIZE + 1));
+	if (!temp2)
 		return (NULL);
-	read(fd, temp, BUFFER_SIZE);
-	while (*temp != '\n')
-		temp2[i++] = *temp++;
+	while (*full != '\n')
+		temp2[i++] = *full++;
 	temp2[i] = '\0';
 	return (temp2);
+}
+
+char	*get_next_line(int fd)
+{
+	static char		*full;
+	char			*linetemp;
+
+	if (fd < 0 || BUFFER_SIZE < 0)
+		return (NULL);
+	full = readfull(fd, full);
+	if (!full)
+		return (NULL);
+	linetemp = readline(full);
+	return (linetemp);
 }
