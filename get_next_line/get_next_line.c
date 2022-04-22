@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:25:32 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/20 07:26:34 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/22 12:26:48 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,52 @@ char	*readline(char *full)
 	int				i;
 
 	i = 0;
-	temp2 = malloc(sizeof * full * (BUFFER_SIZE + 1));
+	if (!full)
+		return (NULL);
+	while (full[i] && full[i] != '\n')
+		i++;
+	temp2 = malloc(sizeof * full * (i + 2));
 	if (!temp2)
 		return (NULL);
-	while (*full != '\n')
-		temp2[i++] = *full++;
+	i = 0;
+	while (full[i] && full[i] != '\n')
+	{
+		temp2[i] = full[i];
+		i++;
+	}
+	if (full[i] == '\n')
+	{
+		temp2[i] = full[i];
+		i++;
+	}
 	temp2[i] = '\0';
 	return (temp2);
+}
+
+char	*newfull(char *full)
+{
+	int		i;
+	int		j;
+	char	*temp;
+
+	i = 0;
+	while (full[i] && full[i] != '\n')
+		i++;
+	if (!full)
+	{
+		free(full);
+		return (NULL);
+	}
+	temp = malloc(sizeof * temp * (ft_strlen(full) - i + 1));
+	if (!temp)
+		return (NULL);
+	i++;
+	j = 0;
+	while (full[i])
+		temp[j++] = full[i++];
+	temp[j] = '\0';
+	free(full);
+	return (temp);
 }
 
 char	*get_next_line(int fd)
@@ -56,5 +95,6 @@ char	*get_next_line(int fd)
 	if (!full)
 		return (NULL);
 	linetemp = readline(full);
+	full = newfull(full);
 	return (linetemp);
 }

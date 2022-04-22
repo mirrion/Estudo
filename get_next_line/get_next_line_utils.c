@@ -6,12 +6,11 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:25:45 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/20 07:25:30 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/22 12:25:53 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
 
 size_t	ft_strlen(const char *s)
 {
