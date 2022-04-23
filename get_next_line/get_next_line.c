@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:25:32 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/22 12:26:48 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/22 13:20:35 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,23 @@
 char	*readfull(int fd, char *full)
 {
 	char	*temp;
+	int		readbt;
 
 	temp = malloc(sizeof * temp * (BUFFER_SIZE + 1));
 	if (!full)
 		return (NULL);
-	if (read(fd, temp, BUFFER_SIZE) == -1)
+	readbt = 1;
+	while (!ft_strchr(full, '\n') && readbt != 0)
 	{
-		free(temp);
-		return (NULL);
+		readbt = read(fd, temp, BUFFER_SIZE);
+		if (readbt == -1)
+		{
+			free(temp);
+			return (NULL);
+		}
+		temp[readbt] = '\0';
+		full = ft_strjoin(full, temp);
 	}
-	temp[ft_strlen(temp) + 1] = '\0';
-	full = ft_strjoin(full, temp);
 	free(temp);
 	return (full);
 }

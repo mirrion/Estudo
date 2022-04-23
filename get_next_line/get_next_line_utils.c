@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:25:45 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/22 12:25:53 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/23 12:12:12 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	str[i] = '\0';
 	return (str);
+}
+
+char	*ft_strchr(const char *str, int ch)
+{
+	int		i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == (char)ch)
+			return ((char *)str + i);
+		i++;
+	}
+	if (ch == '\0')
+		return ((char *)str + i);
+	return (NULL);
 }
