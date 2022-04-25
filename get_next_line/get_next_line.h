@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:26:03 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/23 12:11:18 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/25 10:02:45 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *str, int ch);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(char *str, int ch);
 
 #endif

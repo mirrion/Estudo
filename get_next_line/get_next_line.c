@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:25:32 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/22 13:20:35 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/04/24 10:52:50 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*readfull(int fd, char *full)
 	int		readbt;
 
 	temp = malloc(sizeof * temp * (BUFFER_SIZE + 1));
-	if (!full)
+	if (!temp)
 		return (NULL);
 	readbt = 1;
 	while (!ft_strchr(full, '\n') && readbt != 0)
@@ -42,7 +42,7 @@ char	*readline(char *full)
 	int				i;
 
 	i = 0;
-	if (!full)
+	if (!full[i])
 		return (NULL);
 	while (full[i] && full[i] != '\n')
 		i++;
@@ -73,7 +73,7 @@ char	*newfull(char *full)
 	i = 0;
 	while (full[i] && full[i] != '\n')
 		i++;
-	if (!full)
+	if (!full[i])
 	{
 		free(full);
 		return (NULL);
@@ -95,7 +95,7 @@ char	*get_next_line(int fd)
 	static char		*full;
 	char			*linetemp;
 
-	if (fd < 0 || BUFFER_SIZE < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	full = readfull(fd, full);
 	if (!full)
