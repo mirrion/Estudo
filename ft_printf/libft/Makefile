@@ -1,8 +1,8 @@
-NAME 	= get_next_line.a
+SRCS	= ${wildcard *.c}
+NAME 	= libft.a
+OBJS	= ${SRCS:.c=.o}
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-OBJS	= ${SRCS:.c=.o}
-SRCS	= ${wildcard *.c}
 RM		= rm -f
 AR		= ar rc
 RN		= ranlib
@@ -14,12 +14,6 @@ ${NAME}: ${OBJS}
 			${AR} ${NAME} ${OBJS}
 			${RN} ${NAME}
 
-
-${NAME}: ${OBJS}
-			${CC} ${CFLAGS} -c *.c
-			ar rc ${NAME} *.o
-			ranlib ${NAME}
-
 all: 		${NAME}
 
 clean:
@@ -29,3 +23,6 @@ fclean: 	clean
 			${RM} ${NAME}
 
 re: 		fclean all
+
+so: all
+	gcc -o libft.so -shared -fPIC $(OBJS)
