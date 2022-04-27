@@ -6,7 +6,7 @@
 #    By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 12:09:11 by rosantan          #+#    #+#              #
-#    Updated: 2022/04/26 12:18:16 by rosantan         ###   ########.fr        #
+#    Updated: 2022/04/27 12:21:10 by rosantan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ ${NAME}: ${OBJS}
 
 ${NAME}: ${OBJS}
 			${CC} ${CFLAGS} -c *.c
-			$(MAKE) bonus -C ./libft
+			$(MAKE) -C ./libft
 			cp libft/libft.a $(NAME)
 			ar rc ${NAME} *.o
 			ranlib ${NAME}
