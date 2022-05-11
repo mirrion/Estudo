@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: rosantan <rosantan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 10:06:29 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/12 10:02:46 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/05/04 16:11:00 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@
 #include <string.h>
 #include <fcntl.h>
 
-#define BUF_SIZE 128
+typedef struct s_list
+{
+	int			*content;
+	struct s_list	*next;
+}	t_list;
 
 int	main(void)
 {
-	int	i;
+	t_list	test;
 
-	i = 1024;
-	printf("%i", i);
+	test.content[0] = 112313123;
+	printf("%i", test.content[0]);
 }
-

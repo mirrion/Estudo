@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 08:36:29 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/06 13:49:33 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/05/02 19:00:19 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdio.h>
 # include <stddef.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 long int		ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
@@ -52,5 +53,11 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int nb, int fd);
+int				ft_printstr(char *str);
+int				ft_printnbr(int n);
+int				ft_printptr(unsigned long long ptr);
+int				ft_printunsigned(unsigned int n);
+int				ft_printhex(unsigned int num, const char format);
+int				ft_printporcent(void);
 
 #endif
