@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rosantan <rosantan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 11:57:45 by rosantan          #+#    #+#             */
-/*   Updated: 2022/05/04 15:35:31 by rosantan         ###   ########.fr       */
+/*   Created: 2022/02/24 08:51:49 by rosantan          #+#    #+#             */
+/*   Updated: 2022/03/20 17:54:03 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_strncmp(const char *str1, const char *str2, size_t count)
 {
-	size_t	*rtn;
-	size_t	total;
+	char	c1;
+	char	c2;
 
-	total = size * nmemb;
-	if (nmemb != 0 && total / nmemb != size)
-		return (NULL);
-	rtn = malloc(nmemb * size);
-	if (rtn == NULL)
-		return (NULL);
-	ft_bzero(rtn, nmemb * size);
-	return (rtn);
+	while (count)
+	{
+		c1 = *str1++;
+		c2 = *str2++;
+		if (c1 != c2)
+			return ((unsigned char)c1 - (unsigned char)c2);
+		if (!c1)
+			break ;
+		count--;
+	}
+	return (0);
 }

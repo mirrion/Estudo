@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:25:32 by rosantan          #+#    #+#             */
-/*   Updated: 2022/11/13 16:10:19 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:47:43 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*readfull(int fd, char *full)
 	if (!temp)
 		return (NULL);
 	readbt = 1;
-	while (!ft_strchr(full, '\n') && readbt != 0)
+	while (!ft_strchr2(full, '\n') && readbt != 0)
 	{
 		readbt = read(fd, temp, BUFFER_SIZE);
 		if (readbt == -1)
@@ -30,7 +30,7 @@ char	*readfull(int fd, char *full)
 			return (NULL);
 		}
 		temp[readbt] = '\0';
-		full = ft_strjoin(full, temp);
+		full = ft_strjoin2(full, temp);
 	}
 	free(temp);
 	return (full);
@@ -104,3 +104,4 @@ char	*get_next_line(int fd)
 	full = newfull(full);
 	return (linetemp);
 }
+

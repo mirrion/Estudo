@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rosantan <rosantan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 11:57:45 by rosantan          #+#    #+#             */
-/*   Updated: 2022/05/04 15:35:31 by rosantan         ###   ########.fr       */
+/*   Created: 2022/02/20 19:53:56 by rosantan          #+#    #+#             */
+/*   Updated: 2022/04/06 15:39:05 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	*rtn;
-	size_t	total;
+	char		*tempdst;
+	const char	*tempsrc;
 
-	total = size * nmemb;
-	if (nmemb != 0 && total / nmemb != size)
+	if (dest == NULL && src == NULL)
 		return (NULL);
-	rtn = malloc(nmemb * size);
-	if (rtn == NULL)
-		return (NULL);
-	ft_bzero(rtn, nmemb * size);
-	return (rtn);
+	tempdst = dest;
+	tempsrc = src;
+	if (dest <= src)
+		while (n--)
+			*tempdst++ = *tempsrc++;
+	else
+	{
+		tempdst += n;
+		tempsrc += n;
+		while (n--)
+			*--tempdst = *--tempsrc;
+	}
+	return (dest);
 }

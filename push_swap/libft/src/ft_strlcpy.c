@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 12:14:15 by rosantan          #+#    #+#             */
-/*   Updated: 2022/04/27 12:16:34 by rosantan         ###   ########.fr       */
+/*   Created: 2022/02/21 17:39:46 by rosantan          #+#    #+#             */
+/*   Updated: 2022/03/23 12:41:32 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include "libft/libft.h"
+size_t	ft_strlcpy(char *str, const char *src, size_t n)
+{
+	unsigned int	i;
+	unsigned int	size;
 
-int			ft_printf(const char *str, ...);
-
-#endif
+	i = 0;
+	size = 0;
+	while (src[size] != '\0')
+	{
+		size++;
+	}
+	if (n)
+	{
+		while (src[i] != '\0' && i < n - 1)
+		{
+			str[i] = src[i];
+			i++;
+		}
+		str[i] = '\0';
+	}
+	return (size);
+}

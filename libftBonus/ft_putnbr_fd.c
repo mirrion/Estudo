@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rosantan <rosantan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/06 11:57:45 by rosantan          #+#    #+#             */
-/*   Updated: 2022/05/04 15:35:31 by rosantan         ###   ########.fr       */
+/*   Created: 2022/03/20 10:44:06 by rosantan          #+#    #+#             */
+/*   Updated: 2022/04/06 13:36:58 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	size_t	*rtn;
-	size_t	total;
-
-	total = size * nmemb;
-	if (nmemb != 0 && total / nmemb != size)
-		return (NULL);
-	rtn = malloc(nmemb * size);
-	if (rtn == NULL)
-		return (NULL);
-	ft_bzero(rtn, nmemb * size);
-	return (rtn);
+	if (nb < 0)
+	{
+		if (nb == -2147483648)
+		{
+			ft_putnbr_fd (-21, fd);
+			ft_putnbr_fd (47483648, fd);
+			return ;
+		}
+		ft_putchar_fd('-', fd);
+		nb = nb * -1;
+	}
+	if (nb >= 0 && nb < 10)
+	{
+		nb = nb + '0';
+		ft_putchar_fd(nb, fd);
+	}
+	else
+	{
+		ft_putnbr_fd (nb / 10, fd);
+		nb = nb % 10 + '0';
+		ft_putchar_fd(nb, fd);
+	}
 }
