@@ -1,82 +1,82 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command.c                                          :+:      :+:    :+:   */
+/*   command2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 12:10:53 by rosantan          #+#    #+#             */
-/*   Updated: 2022/11/24 11:59:49 by rosantan         ###   ########.fr       */
+/*   Created: 2022/11/24 08:07:55 by rosantan          #+#    #+#             */
+/*   Updated: 2022/11/24 12:00:05 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_stack *a, int display)
+void	swap_b(t_stack *b, int display)
 {
 	int	buff;
 
 	if (display == 1)
-		ft_putstr("sa\n");
-	if (!a || !(a->next))
+		ft_putstr("sb\n");
+	if (!b || !(b->next))
 		return ;
-	buff = a->data;
-	a->data = a->next->data;
-	a->next->data = buff;
+	buff = b->data;
+	b->data = b->next->data;
+	b->next->data = buff;
 }
 
-void	push_a(t_stacks *s, int display)
+void	push_b(t_stacks *s, int display)
 {
 	t_stack	*buff;
 
 	if (display == 1)
-		ft_putstr("pa/n");
+		ft_putstr("pb/n");
 	if (!(s->b))
 		return ;
-	s->count_a += 1;
-	s->count_b -= 1;
-	buff = s->b;
-	s->b = s->b->next;
-	buff->next = s->a;
-	s->a = buff;
+	s->count_a -= 1;
+	s->count_b += 1;
+	buff = s->a;
+	s->a = s->a->next;
+	buff->next = s->b;
+	s->b = buff;
 }
 
-void	rotate_a(t_stack **a, int display)
+void	rotate_b(t_stack **b, int display)
 {
 	t_stack	*fist;
 	t_stack	*temp;
 	t_stack	*last;
 
 	if (display == 1)
-		ft_putstr("ra/n");
-	if (!(*a) || !((*a)->next))
+		ft_putstr("rb/n");
+	if (!(*b) || !((*b)->next))
 		return ;
-	temp = *a;
-	fist = (*a)->next;
-	last = *a;
+	temp = *b;
+	fist = (*b)->next;
+	last = *b;
 	while (last->next)
 		last = last->next;
 	temp->next = NULL;
 	last->next = temp;
-	*a = fist;
+	*b = fist;
 }
 
-void	rr_a(t_stack **a, int display)
+void	rr_b(t_stack **b, int display)
 {
 	t_stack	*fist;
 	t_stack	*temp;
 	t_stack	*last;
 
 	if (display == 1)
-		ft_putstr("rra/n");
-	if (!(*a) || !((*a)->next))
+		ft_putstr("rrb/n");
+	if (!(*b) || !((*b)->next))
 		return ;
-	fist = *a;
-	last = *a;
+	fist = *b;
+	last = *b;
 	while (last->next->next != NULL)
 		last = last->next;
 	temp = last->next;
 	last->next = NULL;
 	temp->next = fist;
-	*a = temp;
+	*b = temp;
 }

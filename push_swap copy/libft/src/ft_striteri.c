@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 19:26:26 by rosantan          #+#    #+#             */
-/*   Updated: 2022/11/28 19:25:35 by rosantan         ###   ########.fr       */
+/*   Created: 2022/03/20 09:49:35 by rosantan          #+#    #+#             */
+/*   Updated: 2022/03/20 09:50:15 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int	ft_atoi(const char *str)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int		i;
-	int		negative;
 
-	negative = 1;
+	if (!s || !f)
+		return ;
 	i = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\v'
-		|| *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-' || *str == '+')
-		if (*str++ == '-')
-			negative *= -1;
-	while (*str <= '9' && *str >= '0')
+	while (s[i])
 	{
-		i *= 10;
-		i += *str - '0';
-		str++;
+		f(i, &s[i]);
+		i++;
 	}
-	return (i * negative);
 }

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 19:26:26 by rosantan          #+#    #+#             */
-/*   Updated: 2022/11/28 19:25:35 by rosantan         ###   ########.fr       */
+/*   Created: 2022/02/24 08:51:49 by rosantan          #+#    #+#             */
+/*   Updated: 2022/03/20 17:54:03 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int	ft_atoi(const char *str)
+int	ft_strncmp(const char *str1, const char *str2, size_t count)
 {
-	int		i;
-	int		negative;
+	char	c1;
+	char	c2;
 
-	negative = 1;
-	i = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\v'
-		|| *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-' || *str == '+')
-		if (*str++ == '-')
-			negative *= -1;
-	while (*str <= '9' && *str >= '0')
+	while (count)
 	{
-		i *= 10;
-		i += *str - '0';
-		str++;
+		c1 = *str1++;
+		c2 = *str2++;
+		if (c1 != c2)
+			return ((unsigned char)c1 - (unsigned char)c2);
+		if (!c1)
+			break ;
+		count--;
 	}
-	return (i * negative);
+	return (0);
 }

@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 19:26:26 by rosantan          #+#    #+#             */
-/*   Updated: 2022/11/28 19:25:35 by rosantan         ###   ########.fr       */
+/*   Created: 2022/02/21 17:39:46 by rosantan          #+#    #+#             */
+/*   Updated: 2022/03/23 12:41:32 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int	ft_atoi(const char *str)
+size_t	ft_strlcpy(char *str, const char *src, size_t n)
 {
-	int		i;
-	int		negative;
+	unsigned int	i;
+	unsigned int	size;
 
-	negative = 1;
 	i = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\v'
-		|| *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-' || *str == '+')
-		if (*str++ == '-')
-			negative *= -1;
-	while (*str <= '9' && *str >= '0')
+	size = 0;
+	while (src[size] != '\0')
 	{
-		i *= 10;
-		i += *str - '0';
-		str++;
+		size++;
 	}
-	return (i * negative);
+	if (n)
+	{
+		while (src[i] != '\0' && i < n - 1)
+		{
+			str[i] = src[i];
+			i++;
+		}
+		str[i] = '\0';
+	}
+	return (size);
 }

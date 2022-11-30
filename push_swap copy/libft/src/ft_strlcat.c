@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 19:26:26 by rosantan          #+#    #+#             */
-/*   Updated: 2022/11/28 19:25:35 by rosantan         ###   ########.fr       */
+/*   Created: 2022/02/24 18:55:11 by rosantan          #+#    #+#             */
+/*   Updated: 2022/03/23 10:43:31 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int	ft_atoi(const char *str)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int		i;
-	int		negative;
+	int		sizecpy;
+	size_t	sizedst;
 
-	negative = 1;
 	i = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\t' || *str == '\v'
-		|| *str == '\f' || *str == '\r')
-		str++;
-	if (*str == '-' || *str == '+')
-		if (*str++ == '-')
-			negative *= -1;
-	while (*str <= '9' && *str >= '0')
+	sizedst = ft_strlen(dst);
+	sizecpy = (size - sizedst - 1);
+	if (size <= sizedst)
+		return (size + ft_strlen((char *)src));
+	while (i != sizecpy && src[i] != '\0')
 	{
-		i *= 10;
-		i += *str - '0';
-		str++;
+		dst[sizedst + i] = src[i];
+		i++;
 	}
-	return (i * negative);
+	dst[sizedst + i] = '\0';
+	return (sizedst + ft_strlen(src));
 }
