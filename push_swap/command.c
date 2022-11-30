@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 12:10:53 by rosantan          #+#    #+#             */
-/*   Updated: 2022/11/24 11:59:49 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/11/30 16:57:35 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	push_a(t_stacks *s, int display)
 	t_stack	*buff;
 
 	if (display == 1)
-		ft_putstr("pa/n");
+		ft_putstr("pa\n");
 	if (!(s->b))
 		return ;
 	s->count_a += 1;
@@ -48,7 +48,7 @@ void	rotate_a(t_stack **a, int display)
 	t_stack	*last;
 
 	if (display == 1)
-		ft_putstr("ra/n");
+		ft_putstr("ra\n");
 	if (!(*a) || !((*a)->next))
 		return ;
 	temp = *a;
@@ -68,7 +68,7 @@ void	rr_a(t_stack **a, int display)
 	t_stack	*last;
 
 	if (display == 1)
-		ft_putstr("rra/n");
+		ft_putstr("rra\n");
 	if (!(*a) || !((*a)->next))
 		return ;
 	fist = *a;
