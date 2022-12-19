@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:57:04 by rosantan          #+#    #+#             */
-/*   Updated: 2022/11/30 17:19:37 by rosantan         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:53:21 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 	t_stacks	*stacks;
 
 	if (argc < 2)
-		exit_error();
+		return (0);
 	new = malloc(sizeof(t_data) + 1);
 	if (!new)
 		exit_error();

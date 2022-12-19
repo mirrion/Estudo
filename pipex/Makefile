@@ -1,4 +1,4 @@
-NAME  = push_swap
+NAME  = pipex
 LIBFT     = -Llibft -lft
 INCS	= libft/includes
 SRCS  = ${wildcard *.c}
@@ -26,6 +26,3 @@ re:     fclean all
 
 runlibft:
 	make -C libft
-
-test:
-	${CC} ${FLAGS} test.c ${LIBFT}
