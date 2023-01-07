@@ -23,14 +23,11 @@ all: ${NAME}
 
 clean:
 		${RM} ${NAME}
+		$(MAKE) --no-print-directory fclean -C libft
+	$(MAKE) --no-print-directory clean -C mlx_linux
+
 
 fclean:   clean
-	make -C libft fclean
+	make clean
 
 re:     fclean all
-
-runlibft:
-	make -C libft
-
-test:
-	${CC} ${FLAGS} test.c ${LIBFT}
