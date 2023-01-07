@@ -6,13 +6,13 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:25:45 by rosantan          #+#    #+#             */
-/*   Updated: 2022/11/13 12:47:07 by rosantan         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:26:55 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen2(const char *s)
 {
 	size_t	i;
 

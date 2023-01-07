@@ -1,5 +1,6 @@
 NAME  = so_long
 LIBFT     = -Llibft -lft
+INCS	= libft/includes -I ./mlx_linux
 LIBX = -L mlx_linux -lmlx_Linux
 LIBXFLAGS = -lmlx -lXext -lX11
 SRCS  = ${wildcard *.c}
@@ -10,14 +11,10 @@ AR    = ar rc
 RN    = ranlib
 
 ${NAME}: runlibft
-	$(MAKE) --no-print-directory -C libft
-	$(MAKE) --no-print-directory -C mlx_linux
-	${CC} ${FLAGS} ${SRCS} ${LIBFT}  $(LIBX) $(LIBXFLAGS) -o ${NAME} -g
+	${CC} ${FLAGS} -I ${INCS} ${LIBFT} ${SRCS} $(LIBX) $(LIBXFLAGS) -o ${NAME}
 
 ignore: runlibft
-	$(MAKE) --no-print-directory -C libft
-	$(MAKE) --no-print-directory -C mlx_linux
-	${CC} ${SRCS} ${LIBFT} $(LIBX) $(LIBXFLAGS) -o ${NAME} -g
+	${CC} -I ${INCS} ${LIBFT} ${SRCS} $(LIBX) $(LIBXFLAGS) -o ${NAME}
 
 all: ${NAME}
 
