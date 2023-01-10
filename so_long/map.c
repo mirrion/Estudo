@@ -6,13 +6,13 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:06:57 by rosantan          #+#    #+#             */
-/*   Updated: 2023/01/05 18:11:53 by rosantan         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:24:18 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	verify_map_extension(int argc, char **argv, t_game *game)
+void	check_extension(int argc, char **argv, t_game *game)
 {
 	int	map_len;
 
@@ -26,14 +26,7 @@ void	verify_map_extension(int argc, char **argv, t_game *game)
 		close_game_init(RED"Error\n"GREY"invalid extension \n"RESET, game);
 }
 
-void	close_game_init(char *err_msg, t_game *game)
-{
-	free(game);
-	ft_printf(err_msg);
-	exit(EXIT_FAILURE);
-}
-
-void	init_map(char *argv, t_game *game)
+void	load_map(char *argv, t_game *game)
 {
 	char	*map_full;
 	char	*map_line;
@@ -57,7 +50,7 @@ void	init_map(char *argv, t_game *game)
 	}
 	free(map_line);
 	close(map_fd);
-	ft_data_map(game, map_full);
+	data_map(game, map_full);
 	free(map_full);
 }
 
@@ -89,16 +82,16 @@ void	valid_map_parameters(t_game *game)
 	}
 }
 
-int	ft_redraw(t_game *game)
+int	redraw(t_game *game)
 {
 	draw_map(game);
 	return (0);
 }
 
-void	ft_data_map(t_game *game, char *map_full)
+void	data_map(t_game *game, char *map_full)
 {
-	ft_line_empty(game, map_full);
-	game->map.number_lines = ft_count_lines(map_full);
+	line_empty(game, map_full);
+	game->map.number_lines = count_lines(map_full);
 	game->map.map_lines = ft_split(map_full, '\n');
 	game->map.columns = ft_strlen(game->map.map_lines[0]);
 	game->width = game->map.columns * PIXEL;

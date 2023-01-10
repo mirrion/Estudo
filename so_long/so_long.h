@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:34:06 by rosantan          #+#    #+#             */
-/*   Updated: 2023/01/05 19:24:39 by rosantan         ###   ########.fr       */
+/*   Updated: 2023/01/10 19:15:57 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@
 # define EXIT_OPEN	'e'
 # define SPIKE		'S'
 
-# define YELLOW 	0xF7FF00
-# define BLUE		"\033[0;34m"
 # define GREEN		"\033[0;32m"
 # define RED 		"\033[1;31m"
 # define GREY 		"\033[0;90m"
@@ -52,7 +50,6 @@
 
 # define TITLE "GLOBINS"
 # define PIXEL 32
-
 
 typedef struct s_image
 {
@@ -103,12 +100,12 @@ typedef struct s_game
 
 }	t_game;
 
-void	init_all(t_game *game, int argc, char **argv);
-void	init_map_args(t_game *game);
+void	start_all(t_game *game, int argc, char **argv);
+void	open_map_args(t_game *game);
 void	create_paths(t_game *game);
-void	verify_map_extension(int argc, char **argv, t_game *game);
+void	check_extension(int argc, char **argv, t_game *game);
 void	close_game_init(char *err_msg, t_game *game);
-void	init_map(char *argv, t_game *game);
+void	load_map(char *argv, t_game *game);
 void	check_map_columns(t_game *game);
 void	check_map_lines(t_game *game);
 void	valid_map_parameters(t_game *game);
@@ -118,26 +115,24 @@ int		error_msg(t_game *game, char	*message);
 void	free_string_array(char **free_me);
 void	create_sprites(t_game *game);
 void	draw_map(t_game *game);
-void	ft_open_door(t_game *game, int keys);
-int		ft_redraw(t_game *game);
-void	ft_put_image(t_game *game, char type, int y, int x);
-void	ft_open_door(t_game *game, int keys);
-int		ft_handle_input(int keysym, t_game *game);
+int		redraw(t_game *game);
+void	put_image(t_game *game, char type, int y, int x);
+void	open_door(t_game *game, int keys);
+int		handle_input(int keysym, t_game *game);
 int		close_game(t_game *game);
-void	ft_destroy_all(t_game *game);
-void	ft_destroy_images(t_game *game);
-int		ft_valide_move(t_game *game, char move);
-void	ft_move_w(t_game *game);
-void	ft_move_a(t_game *game);
-void	ft_move_s(t_game *game);
-void	ft_move_d(t_game *game);
-void	ft_you_win(void);
-void	ft_you_lose(void);
-void	ft_redraw_player(t_game *game, char *path);
+void	destroy_all(t_game *game);
+void	destroy_images(t_game *game);
+int		valide_move(t_game *game, char move);
+void	move_w(t_game *game);
+void	move_a(t_game *game);
+void	move_s(t_game *game);
+void	move_d(t_game *game);
+void	you_win(void);
+void	redraw_player(t_game *game, char *path);
 int		handle_no_event(void);
 t_image	new_sprite(void *mlx, char *img_path, t_game *game);
-void	ft_data_map(t_game *game, char *map_full);
-void	ft_line_empty(t_game *game, char *map_full);
-int		ft_count_lines(char	*map);
+void	data_map(t_game *game, char *map_full);
+void	line_empty(t_game *game, char *map_full);
+int		count_lines(char	*map);
 
 #endif

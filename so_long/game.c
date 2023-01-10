@@ -6,11 +6,12 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:32:49 by rosantan          #+#    #+#             */
-/*   Updated: 2023/01/04 17:48:37 by rosantan         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:42:09 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 void	valid_game_parameters(t_game *game)
 {
 	if (game->map.player < 1)
@@ -52,4 +53,11 @@ void	init_game(t_game *game)
 int	handle_no_event(void)
 {
 	return (0);
+}
+
+void	close_game_init(char *err_msg, t_game *game)
+{
+	free(game);
+	ft_printf(err_msg);
+	exit(EXIT_FAILURE);
 }

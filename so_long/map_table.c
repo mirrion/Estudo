@@ -6,13 +6,13 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:18:11 by rosantan          #+#    #+#             */
-/*   Updated: 2023/01/05 18:15:12 by rosantan         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:24:18 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_count_lines(char	*map)
+int	count_lines(char	*map)
 {
 	int	cnt1;
 	int	cnt2;

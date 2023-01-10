@@ -9,12 +9,12 @@ RM    = rm -f
 AR    = ar rc
 RN    = ranlib
 
-${NAME}: runlibft
+${NAME}:
 	$(MAKE) --no-print-directory -C libft
 	$(MAKE) --no-print-directory -C mlx_linux
 	${CC} ${FLAGS} ${SRCS} ${LIBFT}  $(LIBX) $(LIBXFLAGS) -o ${NAME} -g
 
-ignore: runlibft
+ignore:
 	$(MAKE) --no-print-directory -C libft
 	$(MAKE) --no-print-directory -C mlx_linux
 	${CC} ${SRCS} ${LIBFT} $(LIBX) $(LIBXFLAGS) -o ${NAME} -g

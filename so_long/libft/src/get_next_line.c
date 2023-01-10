@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:25:32 by rosantan          #+#    #+#             */
-/*   Updated: 2022/11/13 15:47:43 by rosantan         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:43:46 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,3 @@ char	*get_next_line(int fd)
 	full = newfull(full);
 	return (linetemp);
 }
-
