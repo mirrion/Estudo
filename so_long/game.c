@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:32:49 by rosantan          #+#    #+#             */
-/*   Updated: 2023/01/10 16:42:09 by rosantan         ###   ########.fr       */
+/*   Updated: 2023/01/10 19:43:57 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,14 @@ void	close_game_init(char *err_msg, t_game *game)
 	free(game);
 	ft_printf(err_msg);
 	exit(EXIT_FAILURE);
+}
+
+void	create_sprites(t_game *game)
+{
+	game->wall = new_sprite(game->mlx_ptr, game->wall.path, game);
+	game->floor = new_sprite(game->mlx_ptr, game->floor.path, game);
+	game->player = new_sprite(game->mlx_ptr, game->player.path, game);
+	game->key = new_sprite(game->mlx_ptr, game->key.path, game);
+	game->exit = new_sprite(game->mlx_ptr, game->exit.path, game);
+	game->door_open = new_sprite(game->mlx_ptr, game->door_open.path, game);
 }

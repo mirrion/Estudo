@@ -6,7 +6,7 @@
 /*   By: rosantan <rosantan@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 11:34:06 by rosantan          #+#    #+#             */
-/*   Updated: 2023/01/10 19:15:57 by rosantan         ###   ########.fr       */
+/*   Updated: 2023/01/10 19:29:54 by rosantan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@
 # define FLOOR		'0'
 # define MAP_EXIT	'E'
 # define EXIT_OPEN	'e'
-# define SPIKE		'S'
 
 # define GREEN		"\033[0;32m"
 # define RED 		"\033[1;31m"
